@@ -1,0 +1,29 @@
+.procesar-pago {
+  padding: 20px;
+  margin-left: 260px;
+  margin-top: 80px;
+  transition: all 0.3s ease;
+  width: calc(100% - 260px);
+  min-height: calc(100vh - 80px);
+}
+
+/* Ajuste cuando el sidebar está cerrado */
+.sidebar.close ~ .container .procesar-pago{
+  margin-left: 80px;
+  width: calc(100% - 80px);
+}
+
+@media (max-width: 768px) {
+    .procesar-pago{
+    margin-left: 0;
+    width: 100%;
+    padding: 15px;
+  }
+  
+  .sidebar.close ~ .container .procesar-pago {
+    margin-left: 0;
+    width: 100%;
+  }
+
+
+}

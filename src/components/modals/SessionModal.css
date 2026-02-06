@@ -1,0 +1,37 @@
+/* Estilos personalizados para SweetAlert2 de sesión */
+.session-swal-popup {
+    border-radius: 16px !important;
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.session-swal-title {
+    color: #fff !important;
+    font-size: 1.5rem !important;
+    font-weight: 600 !important;
+}
+
+.session-swal-confirm {
+    padding: 12px 30px !important;
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    border-radius: 10px !important;
+    transition: all 0.3s ease !important;
+}
+
+.session-swal-confirm:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4) !important;
+}
+
+.session-swal-cancel {
+    padding: 12px 30px !important;
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    border-radius: 10px !important;
+    transition: all 0.3s ease !important;
+}
+
+.session-swal-cancel:hover {
+    transform: translateY(-2px) !important;
+}

@@ -1,0 +1,444 @@
+/* ==========================================
+   SECCIÓN TRABAJO - PUBLIC
+   ========================================== */
+
+.seccion-trabajo {
+  padding: 80px 0;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.seccion-trabajo-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.seccion-trabajo-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.trabajo-badge {
+  display: inline-block;
+  padding: 8px 20px;
+  background: linear-gradient(135deg, #0554af 0%, #0d6efd 100%);
+  color: white;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.seccion-trabajo-header h2 {
+  font-size: 2.5rem;
+  color: #1a1a2e;
+  margin: 0 0 15px 0;
+  font-weight: 700;
+}
+
+.seccion-trabajo-header p {
+  color: #666;
+  font-size: 1.1rem;
+  margin: 0;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Loading */
+.seccion-trabajo-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 60px;
+  color: #666;
+}
+
+.seccion-trabajo-loading .spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #e0e0e0;
+  border-top-color: #0554af;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 15px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Grid de ofertas */
+.ofertas-trabajo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 25px;
+}
+
+.oferta-trabajo-card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.oferta-trabajo-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgba(5, 84, 175, 0.15);
+}
+
+.oferta-trabajo-imagen {
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+}
+
+.oferta-trabajo-imagen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.oferta-trabajo-card:hover .oferta-trabajo-imagen img {
+  transform: scale(1.05);
+}
+
+.oferta-trabajo-content {
+  padding: 25px;
+}
+
+.oferta-trabajo-titulo {
+  margin: 0 0 12px 0;
+  font-size: 1.25rem;
+  color: #1a1a2e;
+  font-weight: 700;
+}
+
+.oferta-trabajo-descripcion {
+  margin: 0 0 15px 0;
+  color: #666;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.oferta-trabajo-remuneracion {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 15px;
+  background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.oferta-trabajo-remuneracion i {
+  color: #2e7d32;
+  font-size: 1rem;
+}
+
+.oferta-trabajo-remuneracion span {
+  color: #1b5e20;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.oferta-trabajo-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-ver-detalles {
+  flex: 1;
+  padding: 12px 20px;
+  background: #f5f5f5;
+  color: #333;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-ver-detalles:hover {
+  background: #e0e0e0;
+}
+
+.btn-aplicar-whatsapp {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 20px;
+  background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-aplicar-whatsapp:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+}
+
+.btn-aplicar-whatsapp i {
+  font-size: 1.1rem;
+}
+
+/* Modal */
+.trabajo-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 20px;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.trabajo-modal-content {
+  background: white;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  animation: slideUp 0.3s ease;
+  position: relative;
+}
+
+@keyframes slideUp {
+  from { 
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.trabajo-modal-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  color: #333;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.trabajo-modal-close:hover {
+  background: #f44336;
+  color: white;
+  transform: rotate(90deg);
+}
+
+.trabajo-modal-imagen {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+}
+
+.trabajo-modal-imagen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.trabajo-modal-body {
+  padding: 30px;
+}
+
+.trabajo-modal-body h2 {
+  margin: 0 0 15px 0;
+  font-size: 1.75rem;
+  color: #1a1a2e;
+  font-weight: 700;
+}
+
+.trabajo-modal-remuneracion {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+  border-radius: 10px;
+  margin-bottom: 25px;
+}
+
+.trabajo-modal-remuneracion i {
+  color: #2e7d32;
+  font-size: 1.2rem;
+}
+
+.trabajo-modal-remuneracion span {
+  color: #1b5e20;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.trabajo-modal-section {
+  margin-bottom: 25px;
+}
+
+.trabajo-modal-section h4 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 12px 0;
+  font-size: 1.1rem;
+  color: #0554af;
+  font-weight: 600;
+}
+
+.trabajo-modal-section h4 i {
+  font-size: 1rem;
+}
+
+.trabajo-modal-section p {
+  margin: 0;
+  color: #555;
+  line-height: 1.7;
+  font-size: 1rem;
+}
+
+.trabajo-requisitos-lista {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.trabajo-requisitos-lista li {
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 10px;
+  color: #555;
+  line-height: 1.5;
+}
+
+.trabajo-requisitos-lista li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #4CAF50;
+  font-weight: bold;
+}
+
+.trabajo-modal-footer {
+  text-align: center;
+  padding-top: 25px;
+  border-top: 1px solid #eee;
+  margin-top: 25px;
+}
+
+.trabajo-modal-cta {
+  margin: 0 0 15px 0;
+  color: #666;
+  font-size: 1rem;
+}
+
+.btn-aplicar-grande {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 16px 40px;
+  background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-aplicar-grande:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+}
+
+.btn-aplicar-grande i {
+  font-size: 1.3rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .seccion-trabajo {
+    padding: 60px 0;
+  }
+
+  .seccion-trabajo-header h2 {
+    font-size: 2rem;
+  }
+
+  .ofertas-trabajo-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .trabajo-modal-content {
+    margin: 10px;
+    max-height: 95vh;
+    border-radius: 16px;
+  }
+
+  .trabajo-modal-body {
+    padding: 20px;
+  }
+
+  .trabajo-modal-body h2 {
+    font-size: 1.5rem;
+  }
+
+  .oferta-trabajo-actions {
+    flex-direction: column;
+  }
+
+  .btn-aplicar-grande {
+    width: 100%;
+    padding: 14px 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .seccion-trabajo-header h2 {
+    font-size: 1.75rem;
+  }
+
+  .oferta-trabajo-imagen {
+    height: 150px;
+  }
+
+  .oferta-trabajo-content {
+    padding: 20px;
+  }
+}

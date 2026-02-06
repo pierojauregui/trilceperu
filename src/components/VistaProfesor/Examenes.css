@@ -1,0 +1,22 @@
+.examenes-container {
+  margin-left: 260px;
+  margin-top: 80px;
+  transition: all 0.3s ease;
+  width: calc(100% - 260px);
+  min-height: calc(100vh - 80px);
+}
+
+/* Ajuste cuando el sidebar está cerrado */
+.sidebar.close ~ .container .examenes-container {
+  margin-left: 80px;
+  width: calc(100% - 80px);
+}
+
+.examenes-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+

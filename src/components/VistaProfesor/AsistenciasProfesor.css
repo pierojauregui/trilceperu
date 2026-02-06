@@ -1,0 +1,618 @@
+.asistencias-profesor-container {
+  padding: 20px;
+  margin-left: 260px;
+  transition: all 0.3s ease;
+  width: calc(100% - 260px);
+  min-height: calc(100vh - 80px);
+}
+
+/* Ajuste cuando el sidebar está cerrado */
+.sidebar.close ~ .container .asistencias-profesor-container {
+  margin-left: 80px;
+  width: calc(100% - 80px);
+}
+
+
+.asistencias-header h1 {
+  color: var(--grey-color);
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.asistencias-header p {
+  color: var(--grey-color);
+  opacity: 0.7;
+  font-size: 14px;
+}
+
+.mensaje-ayuda , .seleccionar-clase-mensaje{
+  color: var(--grey-color);
+  opacity: 0.8;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.asistencias-controles {
+  margin: 30px 0;
+}
+
+.control-tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.tab-btn {
+  padding: 12px 24px;
+  background: none;
+  border: none;
+  color: var(--grey-color);
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+}
+
+.tab-btn.active {
+  color: #4CAF50;
+  border-bottom-color: #4CAF50;
+}
+
+.tab-btn:hover {
+  background: rgba(76, 175, 80, 0.05);
+}
+
+.filtros-asistencia {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.filtro-item {
+  flex: 1;
+}
+
+.filtro-item label {
+  display: block;
+  color: var(--grey-color);
+  font-size: 14px;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.filtro-item select,
+.filtro-item input {
+  width: 100%;
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+  color: black;
+}
+
+.estadisticas-rapidas {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.stat-card {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  min-width: 180px;
+  flex: 0 1 auto;
+}
+
+.total{
+      background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(10px) !important;
+    border-radius: 15px !important;
+    padding: 1.5rem !important;
+    text-align: center !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    transition: all 0.3s 
+ease !important;
+}
+
+.stat-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  margin-right: 15px;
+}
+
+.stat-icon.presente {
+  background: rgba(76, 175, 80, 0.1);
+  color: #4CAF50;
+}
+
+.stat-icon.ausente {
+  background: rgba(244, 67, 54, 0.1);
+  color: #f44336;
+}
+
+.stat-icon.tardanza {
+  background: rgba(255, 152, 0, 0.1);
+  color: #ff9800;
+}
+
+.stat-icon.justificado {
+  background: rgba(33, 150, 243, 0.1);
+  color: #2196F3;
+}
+
+.stat-info h3 {
+  color: var(--grey-color);
+  font-size: 24px;
+  margin: 0;
+}
+
+.stat-info p {
+  color: var(--grey-color);
+  opacity: 0.7;
+  font-size: 14px;
+  margin: 5px 0 0;
+}
+
+.tabla-asistencia {
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.tabla-asistencia table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tabla-asistencia th {
+  background: #f8f9fa;
+  color: var(--grey-color);
+  font-weight: 600;
+  padding: 15px;
+  text-align: left;
+  font-size: 14px;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.tabla-asistencia td {
+  padding: 15px;
+  color: var(--grey-color);
+  font-size: 14px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.tabla-asistencia tbody tr:hover {
+  background: rgba(76, 175, 80, 0.02);
+}
+
+.botones-asistencia {
+  display: flex;
+  gap: 8px;
+}
+
+.btn-estado {
+  background: #fff;
+  color: #666;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  min-width: 50px;
+  justify-content: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn-estado.presente {
+  border-color: #4CAF50;
+  color: #4CAF50;
+  box-shadow: 0 2px 4px rgba(76, 175, 80, 0.2);
+}
+
+.btn-estado.presente.active {
+  background: #4CAF50;
+  color: white;
+  box-shadow: 0 4px 8px rgba(76, 175, 80, 0.3);
+}
+
+.btn-estado.ausente {
+  border-color: #f44336;
+  color: #f44336;
+  box-shadow: 0 2px 4px rgba(244, 67, 54, 0.2);
+}
+
+.btn-estado.ausente.active {
+  background: #f44336;
+  color: white;
+  box-shadow: 0 4px 8px rgba(244, 67, 54, 0.3);
+}
+
+.btn-estado.tardanza {
+  border-color: #FF9800;
+  color: #FF9800;
+  box-shadow: 0 2px 4px rgba(255, 152, 0, 0.2);
+}
+
+.btn-estado.tardanza.active {
+  background: #FF9800;
+  color: white;
+  box-shadow: 0 4px 8px rgba(255, 152, 0, 0.3);
+}
+
+.btn-estado.justificado {
+  border-color: #2196F3;
+  color: #2196F3;
+  box-shadow: 0 2px 4px rgba(33, 150, 243, 0.2);
+}
+
+.btn-estado.justificado.active {
+  background: #2196F3;
+  color: white;
+  box-shadow: 0 4px 8px rgba(33, 150, 243, 0.3);
+}
+
+.input-observacion {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  font-size: 13px;
+  color: var(--grey-color);
+}
+
+.grafico-placeholder {
+  padding: 60px;
+  text-align: center;
+  background: #f8f9fa;
+  border-radius: 10px;
+}
+
+.grafico-placeholder h3 {
+  color: var(--grey-color);
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.grafico-placeholder p {
+  color: var(--grey-color);
+  opacity: 0.7;
+  font-size: 14px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .asistencias-profesor-container {
+    margin-left: 0;
+    width: 100%;
+    padding: 15px;
+  }
+  
+  .sidebar.close ~ .container .asistencias-profesor-container {
+    margin-left: 0;
+    width: 100%;
+    margin-top: 0px;
+  }
+
+  /* Header responsive */
+  .asistencias-header {
+    margin-bottom: 20px;
+  }
+
+  .header-top {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+  }
+
+  .btn-back {
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    min-width: 40px;
+    height: 40px;
+  }
+
+  .header-info h1 {
+    font-size: 1.5rem;
+    margin: 0;
+  }
+
+  .curso-nombre {
+    font-size: 0.9rem;
+    margin: 5px 0 0 0;
+  }
+
+  /* Filtros responsive - uno debajo del otro */
+  .filtros-asistencia {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+
+  .filtro-item {
+    flex: none;
+    width: 100%;
+  }
+
+  .filtro-item label {
+    font-size: 0.9rem;
+    margin-bottom: 6px;
+  }
+
+  .filtro-item select,
+  .filtro-item input {
+    padding: 12px 15px;
+    font-size: 16px; /* Evita zoom en iOS */
+    border-radius: 8px;
+  }
+
+  /* Control tabs responsive */
+  .control-tabs {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .tab-btn {
+    padding: 15px 20px;
+    justify-content: center;
+    border-radius: 0;
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  .tab-btn:first-child {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+  }
+
+  .tab-btn:last-child {
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-bottom: none;
+  }
+
+  /* Estadísticas responsive */
+  .estadisticas-rapidas {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+
+  .stat-card {
+    min-width: auto;
+    padding: 15px;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .stat-icon {
+    margin-right: 0;
+    margin-bottom: 10px;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+
+  .stat-info h3 {
+    font-size: 1.5rem;
+  }
+
+  .stat-info p {
+    font-size: 0.8rem;
+  }
+
+  /* Tabla responsive con scroll horizontal */
+  .tabla-asistencia {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .tabla-asistencia table {
+    min-width: 800px; /* Ancho mínimo para forzar scroll */
+    width: 100%;
+  }
+
+  .tabla-asistencia th,
+  .tabla-asistencia td {
+    padding: 10px 8px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+  }
+
+  .tabla-asistencia th:first-child,
+  .tabla-asistencia td:first-child {
+    position: sticky;
+    left: 0;
+    background: #f8f9fa;
+    z-index: 1;
+    border-right: 1px solid #e0e0e0;
+  }
+
+  .tabla-asistencia td:first-child {
+    background: white;
+  }
+
+  .tabla-asistencia tbody tr:hover td:first-child {
+    background: rgba(76, 175, 80, 0.02);
+  }
+
+  /* Botones de estado más compactos */
+  .botones-asistencia {
+    gap: 4px;
+    flex-wrap: nowrap;
+  }
+
+  .btn-estado {
+    padding: 6px 8px;
+    font-size: 10px;
+    min-width: 35px;
+  }
+
+  .btn-estado span {
+    display: none; /* Ocultar texto, solo mostrar iconos */
+  }
+
+  .btn-estado i {
+    font-size: 14px;
+  }
+
+  /* Input observación más pequeño */
+  .input-observacion {
+    padding: 6px 8px;
+    font-size: 0.75rem;
+    min-width: 120px;
+  }
+
+  /* Mensajes de ayuda */
+  .mensaje-ayuda,
+  .seleccionar-clase-mensaje {
+    text-align: center;
+    padding: 20px;
+    margin: 20px 0;
+  }
+
+  .seleccionar-clase-mensaje {
+    
+    border-radius: 8px;
+  }
+
+  .seleccionar-clase-mensaje i {
+    font-size: 2rem;
+    color: var(--grey-color);
+    margin-bottom: 10px;
+  }
+
+  .seleccionar-clase-mensaje h3 {
+    font-size: 1.1rem;
+    margin: 10px 0;
+  }
+
+  .seleccionar-clase-mensaje p {
+    font-size: 0.9rem;
+    opacity: 0.7;
+  }
+
+  /* Horario info responsive */
+  .horario-info {
+    margin-top: 10px;
+  }
+
+  .horario-badge {
+    font-size: 0.8rem;
+    padding: 8px 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(76, 175, 80, 0.1);
+    color: #4CAF50;
+    border-radius: 6px;
+  }
+}
+
+@media (max-width: 480px) {
+  .asistencias-profesor-container {
+    padding: 10px;
+  }
+
+  .header-info h1 {
+    font-size: 1.3rem;
+  }
+
+  .curso-nombre {
+    font-size: 0.8rem;
+  }
+
+  /* Estadísticas en una sola columna para pantallas muy pequeñas */
+  .estadisticas-rapidas {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .stat-card {
+    padding: 12px;
+  }
+
+  .stat-icon {
+    width: 35px;
+    height: 35px;
+    font-size: 18px;
+  }
+
+  .stat-info h3 {
+    font-size: 1.3rem;
+  }
+
+  /* Tabla aún más compacta */
+  .tabla-asistencia table {
+    min-width: 700px;
+  }
+
+  .tabla-asistencia th,
+  .tabla-asistencia td {
+    padding: 8px 6px;
+    font-size: 0.75rem;
+  }
+
+  .btn-estado {
+    padding: 4px 6px;
+    min-width: 30px;
+  }
+
+  .btn-estado i {
+    font-size: 12px;
+  }
+
+  .input-observacion {
+    min-width: 100px;
+    font-size: 0.7rem;
+  }
+
+  /* Filtros más compactos */
+  .filtros-asistencia {
+    padding: 12px;
+    gap: 12px;
+  }
+
+  .filtro-item select,
+  .filtro-item input {
+    padding: 10px 12px;
+  }
+}

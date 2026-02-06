@@ -1,0 +1,562 @@
+.crear-categoria-container {
+   padding: 20px;
+  margin-left: 260px;
+  margin-top: 80px;
+  transition: all 0.3s ease;
+  width: calc(100% - 260px);
+  min-height: calc(100vh - 80px);
+}
+  
+  /* Cuando el sidebar está cerrado */
+  .sidebar.close ~ .container .crear-categoria-container {
+    margin-left: 0;
+    width: 100%;
+  }
+  
+  .form-container {
+    background: white;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  }
+  
+  .vista-previa {
+    margin-bottom: 24px;
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+  }
+  
+  h1 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  h2 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .upload-area {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  
+  .upload-box {
+    width: 180px;
+    height: 180px;
+    border: 2px dashed #e0e0e0;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-color: #ffffff;
+  }
+  
+  .upload-box:hover {
+    border-color: #4CAF50;
+    background-color: #f8f9fa;
+  }
+
+
+  
+  .upload-box span {
+    font-size: 24px;
+    color: #666;
+    margin-bottom: 8px;
+  }
+  
+  .upload-box p {
+    color: var(--grey-color);
+    font-size: 14px;
+    margin: 0;
+  }
+
+  .header-section p{
+    color: #666;
+  }
+  
+  .preview-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 6px;
+  }
+  
+  .categoria-form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    background-color: white;
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  }
+  
+  .form-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    align-items: start;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .form-group.full-width {
+    grid-column: 1 / -1;
+  }
+  
+  label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+  }
+  
+  .select-field,
+  input[type="text"],
+  input[type="date"],
+  select,
+  textarea {
+      padding: 10px 12px;
+      height: 42px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 14px;
+      width: 100%;
+      background-color: #fff;
+      color: #333;
+      transition: all 0.2s ease-in-out;
+  }
+
+
+  textarea {
+    min-height: 100px;
+    resize: vertical;
+    height: auto;
+    line-height: 1.5;
+}
+
+  .textarea-field {
+    min-height: 100px;
+    resize: vertical;
+    height: auto;
+  }
+  
+  select.select-field {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%23666' d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    padding-right: 32px;
+  }
+  
+  .select-field:hover,
+  .input-field:hover,
+  .textarea-field:hover,
+  .date-field:hover {
+    border-color: #999;
+  }
+  
+  .select-field:focus,
+input[type="text"]:focus,
+input[type="date"]:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: #4CAF50;
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
+}
+  
+.guardar-btn {
+    padding: 12px 24px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    align-self: flex-start;
+    margin-top: 24px;
+}
+  
+.guardar-btn:hover {
+    background-color: #45a049;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.codigo-text{
+  font-size: 1.8em;
+  background-color: #45a049;
+  color: white;
+  border-radius: 30px;
+  padding: 10px;
+}
+
+/* Estilos para el scrollbar */
+.crear-categoria-container::-webkit-scrollbar {
+    width: 10px;
+}
+
+.crear-categoria-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 5px;
+}
+
+.crear-categoria-container::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 5px;
+}
+
+.crear-categoria-container::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .form-row {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .crear-categoria-container {
+        margin-left: 0;
+        width: 100%;
+        padding: 20px;
+        position: fixed;
+        top: 80px;
+        height: calc(100vh - 80px);
+        background-color: #f8f9fa;
+        overflow-y: auto;
+    }
+
+    .crear-categoria-container h1{
+      margin-top: 20px;
+      color: #333;
+    }
+
+    .codigo-text{
+      font-size: 1em;
+    }
+  
+    .form-row {
+      grid-template-columns: 1fr;
+    }
+  
+    .upload-area {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .upload-box {
+      width: 100%;
+      max-width: 280px;
+    }
+  
+    .guardar-btn {
+      width: 100%;
+    }
+  }
+
+  /* Estilos para placeholder */
+::placeholder {
+    color: #999;
+    opacity: 1;
+}
+
+:-ms-input-placeholder {
+    color: #999;
+}
+
+::-ms-input-placeholder {
+    color: #999;
+}
+
+.codigo-preview {
+  position: relative;
+  padding: 15px;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  background-color: #f5f5f5;
+  margin: 10px 0;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.codigo-text {
+  font-family: monospace;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #333;
+}
+
+.codigo-status {
+  margin-top: 10px;
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.codigo-existente {
+  background-color: #fff5f5;
+  border-color: #ff4444;
+}
+
+.codigo-disponible {
+  background-color: #f0fff4;
+  border-color: #48bb78;
+}
+
+.codigo-warning {
+  color: #ff4444;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.codigo-success {
+  color: #48bb78;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Íconos */
+.status-icon {
+  width: 20px;
+  height: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.status-icon.error {
+  background-color: #ff4444;
+  color: white;
+}
+
+.status-icon.success {
+  background-color: #48bb78;
+  color: white;
+}
+
+
+/*===NUEVO CSS PARA CLIENTES Y CONTACTOS JUEVES 06 DE MARZO ===*/
+
+
+/* Agrega estos estilos a tu archivo CrearCategorias.css */
+
+.contactos-container {
+  margin-top: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  overflow: hidden;
+  max-height: 250px;
+  overflow-y: auto;
+}
+
+.contactos{
+  transition: all 0.3s ease;
+}
+
+.contactos-header {
+  display: grid;
+  grid-template-columns: 3fr 3fr 1fr 1fr;
+  background-color: #f5f5f5;
+  padding: 10px;
+  font-weight: bold;
+  border-bottom: 1px solid #ddd;
+}
+
+.contacto-item {
+  display: grid;
+  grid-template-columns: 3fr 3fr 1fr 1fr;
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+  align-items: center;
+}
+
+.contacto-item:last-child {
+  border-bottom: none;
+}
+
+.contacto-item:hover {
+  background-color: #f9f9f9;
+}
+
+.contacto-nombre, 
+.contacto-email,
+.contacto-select,
+.contacto-sponsor {
+  padding: 0 10px;
+}
+
+.contacto-select, 
+.contacto-sponsor {
+  text-align: center;
+}
+
+.no-contactos {
+  padding: 20px;
+  text-align: center;
+  background-color: #f5f5f5;
+  color: #666;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+/* Estilos para checkbox y radio button */
+.contacto-select input[type="checkbox"],
+.contacto-sponsor input[type="radio"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.contacto-sponsor input[type="radio"]:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+
+
+/*================ NUEVO CSS PARA MODULOS ================*/
+
+/* Agregar estos estilos a tu archivo CrearCategorias.css */
+
+.modulos-descripcion {
+  margin-bottom: 15px;
+  color: #666;
+  font-size: 14px;
+}
+
+.modulos-seleccion-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.modulo-card {
+  width: calc(33.33% - 15px); /* Ajuste para 6 tarjetas en 2 filas */
+  max-width: 240px; /* Límite máximo para evitar que sean demasiado grandes */
+  height: 150px;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  background-size: cover;
+  background-position: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.modulo-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.modulo-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  transition: background 0.3s ease;
+}
+
+.modulo-card.selected .modulo-overlay {
+  background: rgba(76, 175, 80, 0.7);
+}
+
+.modulo-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  padding: 15px;
+  color: white;
+}
+
+.modulo-title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+.modulo-checkbox {
+  align-self: flex-end;
+}
+
+.modulo-checkbox input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+/* Estilo adicional para el checkbox cuando está seleccionado */
+.modulo-card.selected .modulo-checkbox input[type="checkbox"] {
+  accent-color: #4CAF50;
+}
+
+@media (max-width: 1024px) {
+  .modulo-card {
+    width: calc(50% - 15px); /* Dos columnas en pantallas medianas */
+  }
+}
+
+/*linea nueva*/
+.sidebar.close ~ .container .modulos-seleccion-grid .modulo-card {
+ max-width: 270px;
+ transition: all 0.3s ease;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .modulos-seleccion-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+
+  .modulo-card {
+    height: 120px;
+  }
+  
+  .modulo-title {
+    font-size: 14px;
+  }
+}
+
+.btn-secondary{
+    padding: 12px 24px !important;
+    background: red !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 8px !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    transition: all 0.2s !important;
+    font-size: 14px !important;
+}

@@ -1,0 +1,468 @@
+.mis-cursos-alumno-container{
+  padding: 20px;
+  margin-left: 260px;
+  margin-top: 80px;
+  transition: all 0.3s ease;
+  width: calc(100% - 260px);
+  min-height: calc(100vh - 80px);
+}
+
+/* Ajuste cuando el sidebar está cerrado */
+.sidebar.close ~ .container .mis-cursos-alumno-container {
+  margin-left: 80px;
+  width: calc(100% - 80px);
+}
+
+/* Header del componente */
+.mis-cursos-alumno-header {
+  color: white;
+  padding: 30px;
+  border-radius: 15px;
+  margin-bottom: 30px;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+}
+
+.mis-cursos-alumno-header h1 {
+  margin: 0 0 10px 0;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.mis-cursos-alumno-header p {
+  margin: 0 0 20px 0;
+  font-size: 1.1rem;
+  opacity: 0.9;
+  color: var(--grey-color);
+}
+
+.btn-explorar-cursos {
+  background: rgba(255, 255, 255, 0.2);
+  color: var(--grey-color);
+  border: 2px solid var(--grey-color);
+  padding: 12px 24px;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-explorar-cursos:hover {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-2px);
+}
+
+/* Estado de carga */
+.alumno-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  color: #667eea;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #667eea;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.alumno-loading p {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+/* Sin cursos */
+.sin-cursos-alumno {
+  text-align: center;
+  padding: 60px 20px;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.sin-cursos-alumno i {
+  font-size: 4rem;
+  color: #667eea;
+  margin-bottom: 20px;
+}
+
+.sin-cursos-alumno h3 {
+  color: #333;
+  margin: 0 0 15px 0;
+  font-size: 1.5rem;
+}
+
+.sin-cursos-alumno p {
+  color: #666;
+  margin: 0 0 30px 0;
+  font-size: 1rem;
+}
+
+.btn-ver-disponibles {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-ver-disponibles:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+}
+
+/* Grilla de cursos */
+.cursos-alumno-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  gap: 25px;
+}
+
+/* Tarjetas de curso */
+.curso-alumno-card {
+  background: white;
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  border: 1px solid #e9ecef;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.curso-alumno-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Evitar que las imágenes se salgan durante transición del sidebar */
+.curso-alumno-card * {
+  max-width: 100%;
+}
+
+/* Imagen del curso */
+.curso-imagen-container {
+  width: 100%;
+  height: 200px;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  position: relative;
+  background: #f8f9fa;
+  flex-shrink: 0;
+}
+
+.curso-imagen {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.3s ease;
+  display: block;
+  max-width: 100%;
+}
+
+.curso-imagen:hover {
+  transform: scale(1.05);
+}
+
+.imagen-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  font-size: 1rem;
+}
+
+.imagen-placeholder i {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  opacity: 0.7;
+}
+
+.imagen-placeholder span {
+  font-weight: 500;
+  opacity: 0.9;
+}
+
+.curso-alumno-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.curso-alumno-header h3 {
+  margin: 0;
+  color: #333;
+  font-size: 1.3rem;
+  font-weight: 700;
+  flex: 1;
+}
+
+.estado-inscripcion {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.estado-inscripcion.activo {
+  background: #d4edda;
+  color: #155724;
+}
+
+.curso-alumno-info {
+  margin-bottom: 25px;
+}
+
+.curso-descripcion {
+  color: #666;
+  margin: 0 0 20px 0;
+  line-height: 1.5;
+}
+
+.curso-profesor,
+.curso-horario {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  color: #555;
+  font-size: 0.95rem;
+}
+
+.curso-profesor i,
+.curso-horario i {
+  color: #667eea;
+  font-size: 1.1rem;
+}
+
+/* Estilos para imagen del profesor */
+.profesor-imagen {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f0f0f0;
+  flex-shrink: 0;
+}
+
+.profesor-imagen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profesor-imagen-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e0e0e0;
+  color: #999;
+  font-size: 14px;
+}
+
+/* Progreso del curso */
+.curso-progreso {
+  margin: 20px 0;
+}
+
+.progreso-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #555;
+}
+
+.progreso-barra {
+  width: 100%;
+  height: 8px;
+  background: #e9ecef;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progreso-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+/* Estadísticas del curso */
+.curso-estadisticas {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 10px;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  flex: 1;
+}
+
+.stat i {
+  color: #667eea;
+  font-size: 1.2rem;
+}
+
+.stat span {
+  font-size: 0.85rem;
+  color: #555;
+  font-weight: 500;
+  text-align: center;
+}
+
+/* Acciones del curso */
+.curso-alumno-acciones {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.btn-acceder {
+  flex: 1;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-acceder:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.btn-cancelar-inscripcion {
+  background: #dc3545;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-cancelar-inscripcion:hover {
+  background: #c82333;
+  transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+   .mis-cursos-alumno-container {
+    margin-left: 0;
+    width: 100%;
+    padding: 15px;
+  }
+  
+  .sidebar.close ~ .container .mis-cursos-alumno-container {
+    margin-left: 0;
+    width: 100%;
+  }
+  
+  .cursos-alumno-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  /* En móvil, la imagen va primero y ocupa todo el ancho */
+  .curso-alumno-card {
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Forzar que la imagen esté primero */
+  .curso-imagen-container {
+    order: -1;
+    margin-bottom: 0;
+    border-radius: 15px 15px 0 0;
+    height: 180px;
+    width: 100%;
+  }
+  
+  .curso-alumno-header {
+    order: 0;
+    padding: 20px 20px 0 20px;
+  }
+  
+  .curso-alumno-info {
+    order: 1;
+    padding: 0 20px;
+  }
+  
+  .curso-alumno-acciones {
+    order: 2;
+    padding: 20px;
+  }
+  
+  .curso-estadisticas {
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px;
+  }
+  
+  .stat {
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 8px;
+  }
+  
+  .mis-cursos-alumno-header h1 {
+    font-size: 2rem;
+  }
+}

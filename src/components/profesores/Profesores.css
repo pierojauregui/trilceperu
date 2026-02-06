@@ -1,0 +1,260 @@
+.profesores-container {
+  padding: 20px;
+  margin-left: 260px;
+  margin-top: 80px;
+  transition: all 0.3s ease;
+  width: calc(100% - 260px);
+  min-height: calc(100vh - 80px);
+}
+
+/* Cuando el sidebar está cerrado */
+.sidebar.close ~ .container .profesores-container {
+  margin-left: 80px;
+  width: calc(100% - 80px);
+}
+
+h1 {
+  color: var(--grey-color);
+}
+
+.profesores-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  gap: 20px;
+}
+
+.search-input {
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  width: 350px;
+  font-size: 14px;
+}
+
+.agregar-btn {
+  padding: 10px 20px;
+  background-color: var(--nav-color);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.agregar-btn:hover {
+  background-color: var(--nav-color);
+}
+
+/* Estilos responsivos para la tabla */
+.profesores-table {
+  width: 100%;
+  overflow-x: auto;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e0e0e0;
+  position: relative;
+}
+
+.profesores-table table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  min-width: 600px; /* Evita que la tabla se colapse en móviles */
+}
+
+.profesores-table th {
+  background: #f8f9fa;
+  padding: 16px;
+  font-weight: 600;
+  color: #444;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.profesores-table td {
+  padding: 16px;
+  border-bottom: 1px solid #eee;
+  color: #666;
+}
+
+.profesores-table tr:hover {
+  background-color: #f8f9fa;
+}
+
+.ver-btn {
+  padding: 6px 20px;
+  background-color: var(--nav-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: background-color 0.3s ease;
+}
+
+.ver-btn:hover {
+  background-color: var(--nav-color);
+}
+
+/* Estilos para las fotos de perfil de profesores */
+.profesor-foto-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  position: relative;
+}
+
+.profesor-foto {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #e0e0e0;
+  transition: border-color 0.3s ease;
+}
+
+.profesor-foto:hover {
+  border-color: #4CAF50;
+}
+
+.foto-placeholder {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #e0e0e0;
+  color: #999;
+  font-size: 24px;
+}
+
+/* Indicador de scroll en móviles */
+.profesores-table::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 20px;
+  background: linear-gradient(to right, transparent, rgba(0,0,0,0.05));
+  pointer-events: none;
+}
+
+/* Responsive para pantallas pequeñas */
+@media screen and (max-width: 768px) {
+  .profesores-container {
+    margin-left: 0;
+    width: 100%;
+    padding: 15px;
+    margin-top: 70px;
+  }
+
+  .profesores-container h1 {
+    margin-top: 30px;
+  }
+
+  .sidebar.close ~ .container .profesores-container {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .profesores-header {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .search-input {
+    width: 100%;
+  }
+
+  .agregar-btn {
+    width: 100%;
+  }
+
+  .profesores-table {
+    margin-top: 20px;
+    border-radius: 8px;
+  }
+
+  .profesores-table table {
+    min-width: 600px; /* Se mantiene para evitar colapsos */
+  }
+
+  .profesores-table th,
+  .profesores-table td {
+    padding: 12px;
+    font-size: 14px;
+  }
+}
+
+.profesores-controls {
+  display: flex;
+  justify-content: flex-end;
+  margin: 1rem 0;
+}
+
+.items-per-page-select {
+  padding: 0.5rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  padding: 1rem;
+}
+
+.pagination-btn {
+  padding: 0.5rem 1rem;
+  border: 1px solid #ccc;
+  background-color: green;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.pagination-btn:hover:not(:disabled) {
+  background-color: green;
+  color: white;
+}
+
+.pagination-btn.active {
+  background-color: #4CAF50;
+  color: white;
+  border-color: #4CAF50;
+}
+
+.pagination-btn:disabled {
+  background-color: green;
+  color: white;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.no-profesores {
+  text-align: center;
+  padding: 2rem;
+  color: #666;
+  font-style: italic;
+}
+
+
+.no-profesores span {
+  display: flex;
+  flex-direction: column;
+  padding: auto;
+  font-size: 10px;
+
+}

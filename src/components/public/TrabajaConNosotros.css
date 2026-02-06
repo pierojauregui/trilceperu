@@ -1,0 +1,720 @@
+/* =====================================================
+   TRABAJA CON NOSOTROS - Página Pública
+   Clases únicas con prefijo "tcn-" (Trabaja Con Nosotros)
+   ===================================================== */
+
+/* Contenedor principal */
+.tcn-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #f8fafc;
+}
+
+.tcn-main {
+  flex: 1;
+  padding-top: 80px;
+}
+
+/* Hero Section */
+.tcn-hero {
+  background: linear-gradient(135deg, #0554af 0%, #1a73e8 50%, #4a9ff5 100%);
+  color: white;
+  padding: 80px 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.tcn-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  opacity: 0.3;
+}
+
+.tcn-hero-content {
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.tcn-hero h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 16px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.tcn-hero p {
+  font-size: 1.25rem;
+  opacity: 0.95;
+  max-width: 700px;
+  margin: 0 auto 40px;
+  line-height: 1.6;
+}
+
+/* Stats en el hero */
+.tcn-hero-stats {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  flex-wrap: wrap;
+  margin-top: 40px;
+}
+
+.tcn-stat-item {
+  text-align: center;
+}
+
+.tcn-stat-number {
+  display: block;
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.tcn-stat-label {
+  display: block;
+  font-size: 0.9rem;
+  opacity: 0.9;
+  margin-top: 8px;
+}
+
+/* Contenido principal */
+.tcn-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+/* Sección Por qué trabajar con nosotros */
+.tcn-why-section {
+  margin-bottom: 60px;
+}
+
+.tcn-section-title {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.tcn-section-title h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin-bottom: 12px;
+}
+
+.tcn-section-title p {
+  color: #64748b;
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Tarjetas de beneficios */
+.tcn-benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.tcn-benefit-card {
+  background: white;
+  border-radius: 16px;
+  padding: 32px 24px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+  border: 1px solid #e2e8f0;
+}
+
+.tcn-benefit-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgba(5, 84, 175, 0.15);
+  border-color: #0554af;
+}
+
+.tcn-benefit-icon {
+  width: 70px;
+  height: 70px;
+  background: linear-gradient(135deg, #0554af 0%, #1a73e8 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+}
+
+.tcn-benefit-icon i {
+  font-size: 2rem;
+  color: white;
+}
+
+.tcn-benefit-card h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin-bottom: 12px;
+}
+
+.tcn-benefit-card p {
+  color: #64748b;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* Sección de ofertas de trabajo */
+.tcn-jobs-section {
+  margin-bottom: 60px;
+}
+
+.tcn-jobs-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #0554af 0%, #1a73e8 100%);
+  color: white;
+  padding: 8px 20px;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+/* Grid de ofertas */
+.tcn-jobs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 28px;
+}
+
+/* Tarjeta de oferta de trabajo */
+.tcn-job-card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+  border: 1px solid #e2e8f0;
+}
+
+.tcn-job-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 40px rgba(5, 84, 175, 0.12);
+}
+
+.tcn-job-image {
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+}
+
+.tcn-job-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.tcn-job-card:hover .tcn-job-image img {
+  transform: scale(1.08);
+}
+
+.tcn-job-content {
+  padding: 24px;
+}
+
+.tcn-job-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin-bottom: 12px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.tcn-job-description {
+  color: #64748b;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 16px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.tcn-job-salary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #f0fdf4;
+  color: #16a34a;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.tcn-job-salary i {
+  font-size: 1rem;
+}
+
+.tcn-job-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.tcn-btn-details {
+  flex: 1;
+  padding: 12px 20px;
+  background: #f1f5f9;
+  color: #475569;
+  border: none;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.tcn-btn-details:hover {
+  background: #e2e8f0;
+  color: #1a1a2e;
+}
+
+.tcn-btn-apply {
+  flex: 1;
+  padding: 12px 20px;
+  background: #25D366;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.tcn-btn-apply:hover {
+  background: #20bd5a;
+  transform: scale(1.02);
+}
+
+.tcn-btn-apply i {
+  font-size: 1.2rem;
+}
+
+/* Sin ofertas */
+.tcn-no-jobs {
+  text-align: center;
+  padding: 60px 20px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+.tcn-no-jobs-icon {
+  width: 100px;
+  height: 100px;
+  background: #f1f5f9;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+}
+
+.tcn-no-jobs-icon i {
+  font-size: 3rem;
+  color: #94a3b8;
+}
+
+.tcn-no-jobs h3 {
+  font-size: 1.5rem;
+  color: #1a1a2e;
+  margin-bottom: 12px;
+}
+
+.tcn-no-jobs p {
+  color: #64748b;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+/* Loading */
+.tcn-loading {
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.tcn-loading .tcn-spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid #e2e8f0;
+  border-top-color: #0554af;
+  border-radius: 50%;
+  animation: tcn-spin 1s linear infinite;
+  margin: 0 auto 20px;
+}
+
+@keyframes tcn-spin {
+  to { transform: rotate(360deg); }
+}
+
+.tcn-loading p {
+  color: #64748b;
+  font-size: 1rem;
+}
+
+/* Modal de detalle */
+.tcn-modal-overlay {
+  position: fixed;
+  top: 94px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+  animation: tcn-fadeIn 0.3s ease;
+}
+
+@keyframes tcn-fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.tcn-modal-content {
+  background: white;
+  border-radius: 20px;
+  max-width: 600px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  animation: tcn-slideUp 0.3s ease;
+  position: relative;
+}
+
+@keyframes tcn-slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.tcn-modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.tcn-modal-close:hover {
+  background: white;
+  transform: rotate(90deg);
+}
+
+.tcn-modal-close i {
+  font-size: 1.3rem;
+  color: #64748b;
+}
+
+.tcn-modal-image {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #0554af 0%, #1a73e8 100%);
+}
+
+.tcn-modal-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.tcn-modal-body {
+  padding: 32px;
+}
+
+.tcn-modal-body h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin-bottom: 16px;
+}
+
+.tcn-modal-salary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #f0fdf4;
+  color: #16a34a;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+
+.tcn-modal-section {
+  margin-bottom: 24px;
+}
+
+.tcn-modal-section h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.tcn-modal-section h4 i {
+  color: #0554af;
+}
+
+.tcn-modal-section p {
+  color: #475569;
+  line-height: 1.7;
+  font-size: 0.95rem;
+}
+
+.tcn-requisitos-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.tcn-requisitos-list li {
+  position: relative;
+  padding-left: 28px;
+  margin-bottom: 10px;
+  color: #475569;
+  line-height: 1.6;
+}
+
+.tcn-requisitos-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #0554af;
+  font-weight: bold;
+}
+
+.tcn-modal-footer {
+  border-top: 1px solid #e2e8f0;
+  padding-top: 24px;
+  text-align: center;
+}
+
+.tcn-modal-cta {
+  color: #64748b;
+  margin-bottom: 16px;
+  font-size: 1rem;
+}
+
+.tcn-btn-apply-large {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 16px 40px;
+  background: #25D366;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.tcn-btn-apply-large:hover {
+  background: #20bd5a;
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(37, 211, 102, 0.35);
+}
+
+.tcn-btn-apply-large i {
+  font-size: 1.4rem;
+}
+
+/* CTA Section */
+.tcn-cta-section {
+  background: linear-gradient(135deg, #0554af 0%, #1a73e8 100%);
+  border-radius: 20px;
+  padding: 60px 40px;
+  text-align: center;
+  color: white;
+  margin-top: 40px;
+}
+
+.tcn-cta-section h3 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.tcn-cta-section p {
+  font-size: 1.1rem;
+  opacity: 0.95;
+  max-width: 600px;
+  margin: 0 auto 30px;
+  line-height: 1.6;
+}
+
+.tcn-cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.tcn-cta-btn {
+  padding: 14px 32px;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: none;
+}
+
+.tcn-cta-btn.primary {
+  background: white;
+  color: #0554af;
+}
+
+.tcn-cta-btn.primary:hover {
+  background: #f1f5f9;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.tcn-cta-btn.secondary {
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.tcn-cta-btn.secondary:hover {
+  background: rgba(255, 255, 255, 0.25);
+  border-color: white;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .tcn-hero {
+    padding: 60px 16px;
+  }
+
+  .tcn-hero h1 {
+    font-size: 2rem;
+  }
+
+  .tcn-hero p {
+    font-size: 1rem;
+  }
+
+  .tcn-hero-stats {
+    gap: 30px;
+  }
+
+  .tcn-stat-number {
+    font-size: 2rem;
+  }
+
+  .tcn-content {
+    padding: 40px 16px;
+  }
+
+  .tcn-section-title h2 {
+    font-size: 1.5rem;
+  }
+
+  .tcn-jobs-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tcn-job-actions {
+    flex-direction: column;
+  }
+
+  .tcn-modal-content {
+    max-height: 95vh;
+    margin: 10px;
+  }
+
+  .tcn-modal-body {
+    padding: 24px;
+  }
+
+  .tcn-modal-body h2 {
+    font-size: 1.4rem;
+  }
+
+  .tcn-cta-section {
+    padding: 40px 20px;
+  }
+
+  .tcn-cta-section h3 {
+    font-size: 1.4rem;
+  }
+
+  .tcn-cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .tcn-hero h1 {
+    font-size: 1.6rem;
+  }
+
+  .tcn-hero-stats {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .tcn-benefit-card {
+    padding: 24px 20px;
+  }
+}

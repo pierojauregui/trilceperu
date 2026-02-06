@@ -1,0 +1,627 @@
+.foros-alumno-container {
+ padding: 20px;
+  margin-left: 260px;
+  margin-top: 80px;
+  transition: all 0.3s ease;
+  width: calc(100% - 260px);
+  min-height: calc(100vh - 80px);
+}
+
+/* Ajuste cuando el sidebar está cerrado */
+.sidebar.close ~ .container .foros-alumno-container {
+  margin-left: 80px;
+  width: calc(100% - 80px);
+}
+
+/* Header */
+.foros-header {
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.foros-header-info {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.foros-header h2 {
+  margin: 0;
+  color: var(--grey-color);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 24px;
+}
+
+.foros-curso-nombre {
+  margin: 0;
+  color: #6c757d;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.foros-selector-curso {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 250px;
+}
+
+.foros-selector-curso label {
+  font-weight: 600;
+  color: #2c3e50;
+  font-size: 14px;
+}
+
+.foros-selector-curso select {
+  padding: 10px 12px;
+  border: 2px solid #e9ecef;
+  border-radius: 8px;
+  font-size: 14px;
+  background: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.foros-selector-curso select:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+.btn-volver {
+  background: #6c757d;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.btn-volver:hover {
+  background: #5a6268;
+  transform: translateY(-2px);
+}
+
+/* Filtros */
+.foros-filtros {
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.filtro-grupo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 200px;
+}
+
+.filtro-grupo label {
+  font-weight: 600;
+  color: #2c3e50;
+  font-size: 14px;
+}
+
+.filtro-grupo select {
+  padding: 10px 12px;
+  border: 2px solid #e9ecef;
+  border-radius: 8px;
+  font-size: 14px;
+  background: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filtro-grupo select:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+/* Layout principal */
+.foros-alumno-layout {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 20px;
+  height: calc(100vh - 200px);
+}
+
+/* Lista de foros */
+.foros-lista {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+  max-height: 100%;
+}
+
+.foro-item {
+  padding: 15px;
+  border: 2px solid #e9ecef;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: white;
+}
+
+.foro-item:hover {
+  border-color: #007bff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.1);
+}
+
+.foro-item.activo {
+  border-color: #007bff;
+  background: #f8f9ff;
+  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.2);
+}
+
+.foro-item.pinned {
+  border-color: #ffc107;
+  background: #fffbf0;
+}
+
+.foro-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.foro-icon {
+  font-size: 24px;
+  min-width: 30px;
+  text-align: center;
+}
+
+.foro-info h4 {
+  margin: 0 0 5px 0;
+  color: #2c3e50;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.foro-info p {
+  margin: 0;
+  color: #6c757d;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.foro-meta {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.foro-tipo {
+  background: #007bff;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.foro-mensajes,
+.foro-modulo {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #6c757d;
+  font-size: 12px;
+}
+
+/* Notificación de nuevo mensaje */
+.notificacion-nuevo-mensaje {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  padding: 15px;
+  max-width: 300px;
+  z-index: 1000;
+  transform: translateX(100%);
+  opacity: 0;
+  transition: all 0.3s ease;
+  border-left: 4px solid #007bff;
+}
+
+.notificacion-nuevo-mensaje.mostrar {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.notificacion-contenido {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.notificacion-contenido i {
+  font-size: 20px;
+  color: #007bff;
+  margin-top: 2px;
+}
+
+.notificacion-contenido strong {
+  color: #333;
+  font-size: 14px;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.notificacion-contenido p {
+  color: #666;
+  font-size: 13px;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Indicador de carga de mensajes */
+.loading-mensajes {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 15px;
+  background: rgba(108, 117, 125, 0.1);
+  border-radius: 8px;
+  margin-bottom: 10px;
+  color: #6c757d;
+  font-size: 14px;
+}
+
+.loading-mensajes i {
+  font-size: 18px;
+  color: #007bff;
+}
+
+/* Estados vacíos */
+.sin-foros,
+.sin-mensajes {
+  text-align: center;
+  padding: 40px 20px;
+  color: #6c757d;
+}
+
+.sin-foros i,
+.sin-mensajes i {
+  font-size: 48px;
+  margin-bottom: 15px;
+  opacity: 0.5;
+}
+
+.sin-foros h3,
+.sin-mensajes h3 {
+  margin: 0 0 10px 0;
+  color: #495057;
+}
+
+.sin-foros p,
+.sin-mensajes p {
+  margin: 0;
+  font-size: 14px;
+}
+
+/* Chat container */
+.chat-container {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.chat-activo {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.chat-header {
+  padding: 20px;
+  border-bottom: 2px solid #e9ecef;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f8f9fa;
+  border-radius: 12px 12px 0 0;
+}
+
+.foro-seleccionado-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.foro-seleccionado-info .foro-icon {
+  font-size: 28px;
+}
+
+.foro-seleccionado-info h3 {
+  margin: 0 0 5px 0;
+  color: #2c3e50;
+  font-size: 18px;
+}
+
+.foro-seleccionado-info p {
+  margin: 0;
+  color: #6c757d;
+  font-size: 14px;
+}
+
+.btn-cerrar-chat {
+  background: #dc3545;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.btn-cerrar-chat:hover {
+  background: #c82333;
+  transform: scale(1.05);
+}
+
+/* Mensajes */
+.chat-mensajes {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  max-height: calc(100vh - 400px);
+}
+
+.mensaje {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+  align-items: flex-start;
+}
+
+.mensaje.propio {
+  flex-direction: row-reverse;
+}
+
+.mensaje-avatar {
+  font-size: 32px;
+  color: #007bff;
+  min-width: 40px;
+}
+
+.mensaje.propio .mensaje-avatar {
+  color: #28a745;
+}
+
+.mensaje-contenido-wrapper {
+  max-width: 70%;
+  background: #f8f9fa;
+  border-radius: 12px;
+  padding: 12px 15px;
+  position: relative;
+}
+
+.mensaje.propio .mensaje-contenido-wrapper {
+  background: #007bff;
+  color: white;
+}
+
+.mensaje-autor {
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mensaje.propio .mensaje-autor {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.mensaje-fecha {
+  font-size: 12px;
+  opacity: 0.7;
+  font-weight: normal;
+}
+
+.mensaje-contenido {
+  font-size: 14px;
+  line-height: 1.4;
+  word-wrap: break-word;
+}
+
+/* Input de chat */
+.chat-input {
+  display: flex;
+  padding: 15px;
+  background: #fff;
+  border-top: 1px solid #e0e0e0;
+}
+
+.input-wrapper {
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+
+.input-wrapper input {
+  flex: 1;
+  padding: 10px 15px;
+  border: 1px solid #e0e0e0;
+  border-radius: 20px;
+  font-size: 14px;
+  color: var(--grey-color);
+  margin-right: 10px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.input-wrapper input:focus {
+  border-color: #4CAF50;
+  box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.1);
+}
+
+.input-wrapper button {
+  width: 40px;
+  height: 40px;
+  background: #4CAF50;
+  border: none;
+  border-radius: 50%;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.input-wrapper button.active {
+  background: #4CAF50;
+}
+
+.input-wrapper button:hover {
+  background: #45a049;
+  transform: scale(1.1);
+}
+
+.input-wrapper button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Chat deshabilitado */
+.chat-disabled {
+  padding: 20px;
+  text-align: center;
+  background: #f8f9fa;
+  border-top: 2px solid #e9ecef;
+  color: #6c757d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border-radius: 0 0 12px 12px;
+}
+
+.chat-disabled i {
+  font-size: 18px;
+}
+
+/* Sin foro seleccionado */
+.sin-foro {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+  color: #6c757d;
+}
+
+.sin-foro-content i {
+  font-size: 64px;
+  margin-bottom: 20px;
+  opacity: 0.3;
+}
+
+.sin-foro-content h3 {
+  margin: 0 0 10px 0;
+  color: #495057;
+  font-size: 20px;
+}
+
+.sin-foro-content p {
+  margin: 0;
+  font-size: 14px;
+  max-width: 300px;
+}
+
+/* Loading */
+.loading {
+  text-align: center;
+  padding: 40px;
+  color: #6c757d;
+  font-size: 16px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+
+   .foros-alumno-container {
+    margin-left: 0;
+    width: 100%;
+    padding: 15px;
+  }
+  
+  .sidebar.close ~ .container .foros-alumno-container {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .foros-alumno-layout {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+  
+  .foros-lista {
+    max-height: 400px;
+  }
+  
+  .chat-container {
+    min-height: 500px;
+  }
+  
+  .foros-filtros {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .filtro-grupo {
+    min-width: auto;
+  }
+  
+  .header-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  .foros-header h2 {
+    font-size: 20px;
+  }
+}

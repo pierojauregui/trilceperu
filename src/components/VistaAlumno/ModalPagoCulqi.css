@@ -1,0 +1,285 @@
+/* Estilos para Modal de Pago con Culqi */
+/* Ruta: frontend/src/components/VistaAlumno/ModalPagoCulqi.css */
+
+.modal-pago-culqi-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 20px;
+  animation: fadeIn 0.3s ease;
+}
+
+.modal-pago-culqi-content {
+  background: white;
+  border-radius: 16px;
+  max-width: 500px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  animation: slideUp 0.3s ease;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: #f5f5f5;
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.modal-close-btn:hover {
+  background: #e0e0e0;
+  transform: rotate(90deg);
+}
+
+.modal-close-btn i {
+  font-size: 24px;
+  color: #666;
+}
+
+.modal-pago-header {
+  padding: 30px 30px 20px;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.modal-pago-header h2 {
+  margin: 0 0 20px;
+  font-size: 24px;
+  color: #2c3e50;
+}
+
+.curso-info-pago h3 {
+  margin: 0 0 10px;
+  font-size: 18px;
+  color: #34495e;
+  font-weight: 600;
+}
+
+.precio-pago {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.precio-final {
+  font-size: 32px;
+  font-weight: 700;
+  color: #0EC1C3;
+}
+
+.precio-anterior {
+  font-size: 18px;
+  color: #999;
+  text-decoration: line-through;
+}
+
+.metodos-pago {
+  padding: 20px 30px;
+  display: flex;
+  gap: 12px;
+}
+
+.metodo-btn {
+  flex: 1;
+  padding: 15px;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  background: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #666;
+  transition: all 0.3s ease;
+}
+
+.metodo-btn:hover {
+  border-color: #0EC1C3;
+  background: #f0feff;
+}
+
+.metodo-btn.active {
+  border-color: #0EC1C3;
+  background: #0EC1C3;
+  color: white;
+}
+
+.metodo-btn i {
+  font-size: 24px;
+}
+
+.modal-pago-body {
+  padding: 20px 30px;
+}
+
+.pago-tarjeta-info,
+.pago-yape-info {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.pago-tarjeta-info p,
+.pago-yape-info p {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  font-size: 14px;
+  color: #666;
+}
+
+.pago-tarjeta-info p i,
+.pago-yape-info p i {
+  font-size: 20px;
+  color: #0EC1C3;
+}
+
+.btn-pagar-culqi,
+.btn-pagar-yape {
+  width: 100%;
+  padding: 16px;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.btn-pagar-culqi {
+  background: linear-gradient(135deg, #0EC1C3 0%, #0a9799 100%);
+  color: white;
+  box-shadow: 0 4px 15px rgba(14, 193, 195, 0.3);
+}
+
+.btn-pagar-culqi:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(14, 193, 195, 0.4);
+}
+
+.btn-pagar-yape {
+  background: linear-gradient(135deg, #6b21a8 0%, #581c87 100%);
+  color: white;
+  box-shadow: 0 4px 15px rgba(107, 33, 168, 0.3);
+}
+
+.btn-pagar-yape:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(107, 33, 168, 0.4);
+}
+
+.btn-pagar-culqi:disabled,
+.btn-pagar-yape:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.modal-pago-footer {
+  padding: 20px 30px 30px;
+  border-top: 2px solid #f0f0f0;
+}
+
+.info-text {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  font-size: 13px;
+  color: #999;
+  line-height: 1.5;
+}
+
+.info-text i {
+  font-size: 18px;
+  color: #0EC1C3;
+  flex-shrink: 0;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .modal-pago-culqi-content {
+    margin: 20px;
+    max-height: 95vh;
+  }
+
+  .modal-pago-header {
+    padding: 25px 20px 15px;
+  }
+
+  .modal-pago-header h2 {
+    font-size: 20px;
+  }
+
+  .precio-final {
+    font-size: 28px;
+  }
+
+  .metodos-pago {
+    padding: 15px 20px;
+    flex-direction: column;
+  }
+
+  .modal-pago-body {
+    padding: 15px 20px;
+  }
+
+  .modal-pago-footer {
+    padding: 15px 20px 25px;
+  }
+
+  .metodo-btn {
+    font-size: 13px;
+    padding: 12px;
+  }
+}
+
+/* Estilos para el Culqi Checkout (cuando se abre) */
+.culqi-container {
+  z-index: 10000 !important;
+}

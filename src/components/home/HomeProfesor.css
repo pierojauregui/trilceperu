@@ -1,0 +1,1047 @@
+/* ============================================
+   PANEL PROFESOR - VISTA PROFESIONAL
+   ============================================ */
+
+/* Variables específicas para profesor */
+:root {
+  --profesor-primary: #2c5aa0;
+  --profesor-secondary: #4a90e2;
+  --profesor-accent: #667eea;
+  --profesor-success: #28a745;
+  --profesor-warning: #ffc107;
+  --profesor-danger: #dc3545;
+  --profesor-dark: #1a252f;
+  --profesor-light-bg: #f8f9fa;
+  --profesor-white: #ffffff;
+  --profesor-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --profesor-shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);
+  --profesor-shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.16);
+  --profesor-border-radius: 12px;
+  --profesor-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ============================================
+   CONTENEDOR PRINCIPAL
+   ============================================ */
+.home-profesor-container {
+  padding: 24px;
+  margin-left: 260px;
+  margin-top: 80px;
+  min-height: calc(100vh - 80px);
+  transition: var(--profesor-transition);
+}
+
+.sidebar.close ~ .container .home-profesor-container {
+  margin-left: 80px;
+}
+
+/* ============================================
+   LOADING
+   ============================================ */
+.home-profesor-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #2c5aa0 0%, #4a90e2 100%);
+}
+
+.home-profesor-loading .loading-spinner {
+  width: 60px;
+  height: 60px;
+  border: 5px solid rgba(255, 255, 255, 0.2);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin-bottom: 20px;
+}
+
+.home-profesor-loading p {
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* ============================================
+   HEADER
+   ============================================ */
+.home-profesor-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 28px;
+  padding: 28px 32px;
+  border-radius: var(--profesor-border-radius);
+  box-shadow: var(--profesor-shadow-md);
+  border-left: 5px solid var(--profesor-primary);
+}
+
+.home-profesor-header .saludo-container h1 {
+  color: var(--grey-color);
+  font-size: 2.2rem;
+  margin: 0 0 8px 0;
+  font-weight: 700;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.home-profesor-header .saludo-container p {
+  color: var(--grey-color);
+  font-size: 1rem;
+  margin: 0;
+  font-weight: 500;
+}
+
+.home-profesor-header .fecha-actual {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--grey-color);
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 16px 24px;
+  border-radius: var(--profesor-border-radius);
+  box-shadow: var(--profesor-shadow-sm);
+}
+
+.home-profesor-header .fecha-actual i {
+  font-size: 1.4rem;
+  color: var(--grey-color);
+}
+
+/* ============================================
+   ESTADÍSTICAS DEL PROFESOR
+   ============================================ */
+.estadisticas-profesor {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-bottom: 28px;
+}
+
+.estadisticas-profesor .stat-card {
+  background: var(--profesor-white);
+  padding: 24px;
+  border-radius: var(--profesor-border-radius);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  box-shadow: var(--profesor-shadow-md);
+  transition: var(--profesor-transition);
+  border: 2px solid transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.estadisticas-profesor .stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(135deg, #2c5aa0 0%, #4a90e2 100%);
+}
+
+.estadisticas-profesor .stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--profesor-shadow-lg);
+  border-color: rgba(44, 90, 160, 0.3);
+}
+
+.estadisticas-profesor .stat-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  color: white;
+  flex-shrink: 0;
+}
+
+.estadisticas-profesor .stat-info h3 {
+  font-size: 2rem;
+  font-weight: 800;
+  margin: 0;
+  color: var(--profesor-dark);
+}
+
+.estadisticas-profesor .stat-info p {
+  font-size: 0.9rem;
+  color: #6c757d;
+  margin: 4px 0 0 0;
+  font-weight: 600;
+}
+
+/* ============================================
+   LAYOUT PRINCIPAL - 2 COLUMNAS
+   ============================================ */
+.home-profesor-container .contenido-principal {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 24px;
+}
+
+.home-profesor-container .columna-izquierda {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.home-profesor-container .columna-derecha {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ============================================
+   SECCIONES BASE
+   ============================================ */
+.home-profesor-container .seccion-calendario,
+.home-profesor-container .seccion-cursos,
+.home-profesor-container .seccion-anuncios-moderna {
+  border-radius: var(--profesor-border-radius);
+  padding: 28px;
+  box-shadow: var(--profesor-shadow-md);
+  border-left: 4px solid var(--profesor-primary);
+}
+
+.home-profesor-container .seccion-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid #e8f2ff;
+}
+
+.home-profesor-container .seccion-header h2 {
+  color: var(--grey-color);
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.home-profesor-container .seccion-header h2 i {
+  font-size: 1.5rem;
+  color: var(--profesor-primary);
+}
+
+.home-profesor-container .badge-info {
+  background: linear-gradient(135deg, #2c5aa0 0%, #4a90e2 100%);
+  color: white;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(44, 90, 160, 0.3);
+}
+
+/* ============================================
+   CALENDARIO (heredado con ajustes)
+   ============================================ */
+.home-profesor-container .calendario-wrapper {
+  border-radius: var(--profesor-border-radius);
+  overflow: hidden;
+  box-shadow: var(--profesor-shadow-sm);
+}
+
+.home-profesor-container .rbc-toolbar {
+  background: linear-gradient(135deg, #2c5aa0 0%, #4a90e2 100%) !important;
+  padding: 20px !important;
+  margin-bottom: 0 !important;
+  border-radius: var(--profesor-border-radius) var(--profesor-border-radius) 0 0;
+}
+
+.home-profesor-container .rbc-toolbar-label {
+  color: white !important;
+  font-size: 1.3rem !important;
+  font-weight: 700 !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.home-profesor-container .rbc-toolbar button {
+  color: white !important;
+  border: 2px solid rgba(255, 255, 255, 0.3) !important;
+  background: rgba(255, 255, 255, 0.1) !important;
+  padding: 8px 16px !important;
+  border-radius: 8px !important;
+  font-weight: 600 !important;
+  transition: var(--profesor-transition) !important;
+}
+
+.home-profesor-container .rbc-toolbar button:hover {
+  background: rgba(255, 255, 255, 0.2) !important;
+  border-color: rgba(255, 255, 255, 0.5) !important;
+  transform: translateY(-2px);
+}
+
+.home-profesor-container .rbc-toolbar button.rbc-active {
+  background: white !important;
+  color: #2c5aa0 !important;
+  border-color: white !important;
+}
+
+/* ============================================
+   CURSOS DEL PROFESOR
+   ============================================ */
+.home-profesor-container .cursos-grid-mejorado {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+.home-profesor-container .curso-card-moderno {
+  background: var(--profesor-white);
+  border-radius: var(--profesor-border-radius);
+  overflow: hidden;
+  box-shadow: var(--profesor-shadow-sm);
+  transition: var(--profesor-transition);
+  border: 2px solid transparent;
+  position: relative;
+}
+
+.home-profesor-container .curso-card-moderno::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(135deg, #2c5aa0 0%, #4a90e2 100%);
+  z-index: 1;
+}
+
+.home-profesor-container .curso-card-moderno:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--profesor-shadow-lg);
+  border-color: rgba(44, 90, 160, 0.3);
+}
+
+.home-profesor-container .curso-imagen-container {
+  position: relative;
+  height: 180px;
+  overflow: hidden;
+}
+
+.home-profesor-container .curso-imagen-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--profesor-transition);
+}
+
+.home-profesor-container .curso-card-moderno:hover .curso-imagen-container img {
+  transform: scale(1.05);
+}
+
+.home-profesor-container .curso-badge-estudiantes {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(10px);
+  color: white;
+  padding: 8px 14px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.home-profesor-container .curso-info-moderna {
+  padding: 24px;
+}
+
+.home-profesor-container .curso-info-moderna h3 {
+  color: var(--profesor-dark);
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 0 0 12px 0;
+  line-height: 1.4;
+}
+
+.home-profesor-container .curso-calificacion {
+  color: #6c757d;
+  font-size: 0.9rem;
+  margin: 0 0 16px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+}
+
+.home-profesor-container .curso-calificacion i {
+  font-size: 1.2rem;
+  color: #ffc107;
+}
+
+.home-profesor-container .curso-detalles-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.home-profesor-container .detalle-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #6c757d;
+  font-size: 0.85rem;
+  font-weight: 600;
+  background: #f8f9fa;
+  padding: 8px 12px;
+  border-radius: 8px;
+}
+
+.home-profesor-container .detalle-item i {
+  color: var(--profesor-primary);
+  font-size: 1.1rem;
+}
+
+.home-profesor-container .curso-estudiantes-info {
+  margin-bottom: 16px;
+}
+
+.home-profesor-container .estudiantes-bar {
+  width: 100%;
+  height: 8px;
+  background: #e9ecef;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 8px;
+}
+
+.home-profesor-container .estudiantes-fill {
+  height: 100%;
+  border-radius: 10px;
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 0 8px rgba(44, 90, 160, 0.5);
+}
+
+.home-profesor-container .curso-estudiantes-info small {
+  color: #6c757d;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.home-profesor-container .btn-gestionar-curso {
+  width: 100%;
+  background: linear-gradient(135deg, #2c5aa0 0%, #4a90e2 100%);
+  color: white;
+  border: none;
+  padding: 14px 24px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: var(--profesor-transition);
+  box-shadow: 0 4px 12px rgba(44, 90, 160, 0.3);
+}
+
+.home-profesor-container .btn-gestionar-curso:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(44, 90, 160, 0.4);
+}
+
+.home-profesor-container .btn-gestionar-curso i {
+  font-size: 1.2rem;
+}
+
+.home-profesor-container .sin-cursos {
+  text-align: center;
+  padding: 60px 20px;
+  color: #6c757d;
+}
+
+.home-profesor-container .sin-cursos i {
+  font-size: 4rem;
+  color: #dee2e6;
+  margin-bottom: 16px;
+}
+
+.home-profesor-container .sin-cursos p {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* ============================================
+   ANUNCIOS DEL PROFESOR
+   ============================================ */
+.home-profesor-container .anuncios-lista-moderna {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-height: 680px;
+  overflow-y: auto;
+  padding-right: 8px;
+}
+
+.home-profesor-container .anuncios-lista-moderna::-webkit-scrollbar {
+  width: 6px;
+}
+
+.home-profesor-container .anuncios-lista-moderna::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.home-profesor-container .anuncios-lista-moderna::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #2c5aa0 0%, #4a90e2 100%);
+  border-radius: 10px;
+}
+
+.home-profesor-container .anuncio-card-moderna {
+  display: flex;
+  gap: 16px;
+  padding: 20px;
+  background: linear-gradient(135deg, #e8f2ff 0%, #d1e7ff 100%);
+  border-radius: var(--profesor-border-radius);
+  transition: var(--profesor-transition);
+  border: 2px solid transparent;
+  border-left: 4px solid var(--profesor-primary);
+}
+
+.home-profesor-container .anuncio-card-moderna:hover {
+  transform: translateX(4px);
+  border-color: rgba(44, 90, 160, 0.3);
+  box-shadow: var(--profesor-shadow-sm);
+}
+
+.home-profesor-container .anuncio-icon-moderna {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #2c5aa0 0%, #4a90e2 100%);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(44, 90, 160, 0.3);
+}
+
+.home-profesor-container .anuncio-contenido-moderno h4 {
+  color: var(--profesor-dark);
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0 0 8px 0;
+  line-height: 1.4;
+}
+
+.home-profesor-container .anuncio-contenido-moderno p {
+  color: #6c757d;
+  font-size: 0.9rem;
+  margin: 0 0 10px 0;
+  line-height: 1.5;
+}
+
+.home-profesor-container .anuncio-fecha-moderna {
+  color: var(--profesor-primary);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.home-profesor-container .sin-anuncios {
+  text-align: center;
+  padding: 60px 20px;
+  color: #6c757d;
+}
+
+.home-profesor-container .sin-anuncios i {
+  font-size: 3rem;
+  color: #dee2e6;
+  margin-bottom: 12px;
+}
+
+.home-profesor-container .sin-anuncios p {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* ============================================
+   ELEMENTOS ESPECÍFICOS DEL CALENDARIO
+   ============================================ */
+.home-profesor-container .rbc-header {
+  background: linear-gradient(135deg, #e8f2ff 0%, #d1e7ff 100%);
+  color: var(--profesor-dark) !important;
+  font-weight: 700 !important;
+  padding: 16px 8px !important;
+  border-bottom: 2px solid #c1d9f0 !important;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.home-profesor-container .rbc-today {
+  background-color: rgba(44, 90, 160, 0.1) !important;
+  border: 2px solid var(--profesor-primary) !important;
+}
+
+.home-profesor-container .rbc-date-cell.rbc-now {
+  font-weight: 700 !important;
+  color: var(--profesor-primary) !important;
+}
+
+.home-profesor-container .custom-event-content {
+  display: flex;
+  flex-direction: column;
+  padding: 2px 0;
+}
+
+.home-profesor-container .event-title {
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 1.2;
+}
+
+.home-profesor-container .event-time {
+  font-size: 10px;
+  opacity: 0.9;
+  margin-top: 2px;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 1400px) {
+  .home-profesor-container .contenido-principal {
+    grid-template-columns: 1fr 340px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .home-profesor-container {
+    margin-left: 0;
+    padding: 20px;
+  }
+
+  .estadisticas-profesor {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .home-profesor-container .contenido-principal {
+    grid-template-columns: 1fr;
+  }
+
+  .home-profesor-container .columna-derecha {
+    order: -1;
+  }
+
+  .home-profesor-container .anuncios-lista-moderna {
+    max-height: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  .home-profesor-container {
+    margin-left: 0;
+    width: 100%;
+    padding: 15px;
+  }
+  
+  .sidebar.close ~ .container .home-profesor-container {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .home-profesor-header {
+    flex-direction: column;
+    gap: 16px;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .home-profesor-header .saludo-container h1 {
+    font-size: 1.8rem;
+  }
+
+  .home-profesor-header .fecha-actual {
+    justify-content: center;
+  }
+
+  .estadisticas-profesor {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .estadisticas-profesor .stat-card {
+    padding: 20px;
+  }
+
+  /* Mejoras para contenido-principal en móvil */
+  .home-profesor-container .contenido-principal {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .home-profesor-container .columna-izquierda,
+  .home-profesor-container .columna-derecha {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .home-profesor-container .columna-derecha {
+    order: -1;
+  }
+
+  /* Mejoras específicas para el calendario en móvil */
+  .home-profesor-container .seccion-calendario {
+    padding: 16px;
+    overflow: hidden;
+  }
+
+  .home-profesor-container .calendario-wrapper {
+    overflow-x: auto;
+    overflow-y: hidden;
+    border-radius: 8px;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .home-profesor-container .rbc-calendar {
+    min-width: 320px;
+    font-size: 12px;
+  }
+
+  /* Toolbar del calendario más compacto */
+  .home-profesor-container .rbc-toolbar {
+    padding: 12px !important;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .home-profesor-container .rbc-toolbar-label {
+    font-size: 1.1rem !important;
+    order: 1;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 8px;
+  }
+
+  .home-profesor-container .rbc-btn-group {
+    flex: 1;
+    justify-content: center;
+  }
+
+  .home-profesor-container .rbc-toolbar button {
+    padding: 6px 12px !important;
+    font-size: 0.8rem !important;
+    min-width: auto;
+  }
+
+  /* Headers del calendario más pequeños */
+  .home-profesor-container .rbc-header {
+    padding: 8px 4px !important;
+    font-size: 0.7rem !important;
+  }
+
+  /* Eventos más compactos */
+  .home-profesor-container .rbc-event {
+    font-size: 10px !important;
+    padding: 2px 4px !important;
+  }
+
+  .home-profesor-container .custom-event-content .event-title {
+    font-size: 10px;
+    line-height: 1.1;
+  }
+
+  .home-profesor-container .custom-event-content .event-time {
+    font-size: 8px;
+    margin-top: 1px;
+  }
+
+  /* Celdas del calendario */
+  .home-profesor-container .rbc-date-cell {
+    padding: 4px 2px !important;
+    min-height: 60px;
+  }
+
+  .home-profesor-container .rbc-date-cell button {
+    font-size: 0.8rem !important;
+    padding: 2px !important;
+  }
+
+  /* Cursos grid mejorado */
+  .home-profesor-container .cursos-grid-mejorado {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .home-profesor-container .curso-card-moderno {
+    margin: 0 auto;
+    max-width: 100%;
+  }
+
+  /* Anuncios más compactos */
+  .home-profesor-container .anuncios-lista-moderna {
+    max-height: 300px;
+  }
+
+  .home-profesor-container .anuncio-card-moderna {
+    padding: 16px;
+  }
+
+  .home-profesor-container .anuncio-icon-moderna {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+}
+
+/* Mejoras adicionales para el layout responsive */
+@media (max-width: 768px) {
+  .home-profesor-container .contenido-principal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 16px;
+  }
+
+  .home-profesor-container .columna-izquierda,
+  .home-profesor-container .columna-derecha {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 0 24px 0;
+  }
+
+  .home-profesor-container .seccion-calendario {
+    width: 100%;
+    margin-bottom: 24px;
+  }
+
+  .home-profesor-container .calendario-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    padding: 0;
+  }
+
+  .home-profesor-container .rbc-calendar {
+    min-width: 320px;
+    width: 100%;
+  }
+
+  .home-profesor-container .cursos-grid-mejorado {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .home-profesor-container .anuncios-lista-moderna {
+    gap: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-profesor-container {
+    padding: 12px;
+  }
+
+  .home-profesor-container .contenido-principal {
+    padding: 0 8px;
+  }
+
+  .home-profesor-container .seccion-calendario,
+  .home-profesor-container .seccion-cursos,
+  .home-profesor-container .seccion-anuncios-moderna {
+    padding: 16px;
+  }
+
+  .home-profesor-header {
+    padding: 16px;
+  }
+
+  .home-profesor-header .saludo-container h1 {
+    font-size: 1.5rem;
+  }
+
+  .estadisticas-profesor .stat-info h3 {
+    font-size: 1.6rem;
+  }
+
+  .estadisticas-profesor .stat-card {
+    padding: 16px;
+    gap: 12px;
+  }
+
+  .estadisticas-profesor .stat-icon {
+    width: 48px;
+    height: 48px;
+    font-size: 1.4rem;
+  }
+
+  /* Calendario ultra compacto para móviles pequeños */
+  .home-profesor-container .rbc-calendar {
+    min-width: 280px;
+    font-size: 10px;
+  }
+
+  .home-profesor-container .rbc-toolbar {
+    padding: 8px !important;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .home-profesor-container .rbc-toolbar-label {
+    font-size: 1rem !important;
+    margin-bottom: 12px;
+  }
+
+  .home-profesor-container .rbc-btn-group {
+    width: 100%;
+    justify-content: space-around;
+    margin-bottom: 8px;
+  }
+
+  .home-profesor-container .rbc-toolbar button {
+    padding: 8px 12px !important;
+    font-size: 0.75rem !important;
+    flex: 1;
+    margin: 0 2px;
+  }
+
+  .home-profesor-container .rbc-header {
+    padding: 6px 2px !important;
+    font-size: 0.6rem !important;
+  }
+
+  .home-profesor-container .rbc-date-cell {
+    min-height: 50px;
+    padding: 2px 1px !important;
+  }
+
+  .home-profesor-container .rbc-date-cell button {
+    font-size: 0.7rem !important;
+    padding: 1px !important;
+  }
+
+  .home-profesor-container .rbc-event {
+    font-size: 8px !important;
+    padding: 1px 2px !important;
+    margin: 1px 0 !important;
+  }
+
+  .home-profesor-container .custom-event-content .event-title {
+    font-size: 8px;
+    line-height: 1;
+  }
+
+  .home-profesor-container .custom-event-content .event-time {
+    font-size: 7px;
+    margin-top: 0;
+  }
+
+  /* Ajustes adicionales para pantallas muy pequeñas */
+  .home-profesor-container .curso-imagen-container {
+    height: 140px;
+  }
+
+  .home-profesor-container .curso-info-moderna {
+    padding: 16px;
+  }
+
+  .home-profesor-container .curso-info-moderna h3 {
+    font-size: 1.1rem;
+  }
+
+  .home-profesor-container .anuncio-card-moderna {
+    padding: 12px;
+    gap: 12px;
+  }
+
+  .home-profesor-container .anuncio-icon-moderna {
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
+  }
+
+  .home-profesor-container .anuncio-contenido-moderno h4 {
+    font-size: 0.9rem;
+  }
+
+  .home-profesor-container .anuncio-contenido-moderno p {
+    font-size: 0.8rem;
+  }
+}
+
+/* ===================================================
+   CSS ADICIONAL PARA FIX DEL CALENDARIO PROFESOR
+   =================================================== */
+
+.home-profesor-container .rbc-calendar,
+.home-profesor-container .rbc-calendar *,
+.home-profesor-container .rbc-toolbar,
+.home-profesor-container .rbc-toolbar *,
+.home-profesor-container .rbc-month-view,
+.home-profesor-container .rbc-month-view * {
+  pointer-events: auto !important;
+}
+
+.home-profesor-container .rbc-btn-group {
+  display: inline-flex !important;
+  gap: 8px;
+  pointer-events: auto !important;
+}
+
+.home-profesor-container .rbc-event {
+  cursor: pointer !important;
+  pointer-events: auto !important;
+  user-select: none !important;
+}
+
+.home-profesor-container .rbc-event-label,
+.home-profesor-container .rbc-event-content {
+  pointer-events: none !important;
+}
+
+.home-profesor-container .rbc-date-cell {
+  cursor: pointer !important;
+  user-select: none !important;
+}
+
+.home-profesor-container .rbc-date-cell button {
+  cursor: pointer !important;
+  pointer-events: auto !important;
+}
+
+.home-profesor-container .rbc-overlay {
+  pointer-events: auto !important;
+  z-index: 1000 !important;
+}
+
+.home-profesor-container .rbc-show-more {
+  cursor: pointer !important;
+  pointer-events: auto !important;
+  background-color: rgba(0, 0, 0, 0.05) !important;
+  padding: 4px 8px !important;
+  border-radius: 4px !important;
+  transition: background-color 0.2s ease !important;
+}
+
+.home-profesor-container .rbc-show-more:hover {
+  background-color: rgba(0, 0, 0, 0.1) !important;
+}

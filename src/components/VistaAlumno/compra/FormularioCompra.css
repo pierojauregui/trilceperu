@@ -1,0 +1,683 @@
+/* Checkout Container */
+.checkout-container {
+  padding: 20px;
+  margin-left: 260px;
+  margin-top: 80px;
+  width: calc(100% - 260px);
+  min-height: calc(100vh - 80px);
+}
+
+.sidebar.close ~ .container .checkout-container {
+  margin-left: 80px;
+  width: calc(100% - 80px);
+}
+
+/* Header */
+.checkout-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 30px;
+  padding: 0 20px;
+}
+
+.btn-back {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: white;
+  border: none;
+  border-radius: 10px;
+  color: #1a1a2e;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.btn-back:hover {
+  background: #1a1a2e;
+  color: white;
+  transform: translateX(-5px);
+}
+
+.checkout-header h1 {
+  color: #1a1a2e;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+/* Content - 2 Cards Layout */
+.checkout-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Cards Base */
+.checkout-card {
+  background: white;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.card-header i {
+  font-size: 24px;
+  color: #e94560;
+}
+
+.card-header h2 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1a1a2e;
+}
+
+/* Curso Card */
+.curso-detalle {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 25px;
+}
+
+.curso-imagen-wrapper {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.curso-imagen {
+  width: 180px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.descuento-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #e94560;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.curso-info {
+  flex: 1;
+}
+
+.curso-categoria {
+  display: inline-block;
+  background: #e8f4fd;
+  color: #0066cc;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.curso-nombre {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1a1a2e;
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+
+.curso-descripcion {
+  font-size: 13px;
+  color: #666;
+  line-height: 1.5;
+  margin-bottom: 12px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.curso-stats {
+  display: flex;
+  gap: 15px;
+}
+
+.curso-stats span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 13px;
+  color: #888;
+}
+
+.curso-stats i {
+  color: #e94560;
+}
+
+/* Precio Section */
+.precio-section {
+  background: #f8f9fa;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.precio-linea {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  font-size: 14px;
+  color: #666;
+}
+
+.precio-linea.descuento .precio-descuento {
+  color: #27ae60;
+  font-weight: 500;
+}
+
+.precio-linea.total {
+  border-top: 2px solid #e0e0e0;
+  margin-top: 10px;
+  padding-top: 15px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #1a1a2e;
+}
+
+.precio-total {
+  color: #e94560;
+  font-size: 24px;
+}
+
+/* Garantias */
+.garantias {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.garantia {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: #666;
+}
+
+.garantia i {
+  color: #27ae60;
+}
+
+/* Pago Card */
+.form-section {
+  margin-bottom: 25px;
+}
+
+.form-section h3,
+.metodo-section h3 {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a1a2e;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px 15px;
+  border: 2px solid #e8e8e8;
+  border-radius: 10px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  background: #fafafa;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #e94560;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(233, 69, 96, 0.1);
+}
+
+.form-group input.readonly {
+  background: #f0f0f0;
+  color: #888;
+  cursor: not-allowed;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.telefono-input {
+  display: flex;
+  border: 2px solid #e8e8e8;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fafafa;
+}
+
+.telefono-input .prefix {
+  padding: 12px 15px;
+  background: #e8e8e8;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.telefono-input input {
+  border: none;
+  flex: 1;
+  background: transparent;
+}
+
+.telefono-input input:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+/* Metodos de Pago */
+.metodo-section {
+  margin-bottom: 25px;
+}
+
+.metodos-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.metodo-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 20px;
+  background: #f8f9fa;
+  border: 2px solid #e8e8e8;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.metodo-btn:hover {
+  border-color: #ccc;
+  background: white;
+}
+
+.metodo-btn.active {
+  border-color: #e94560;
+  background: #fff5f7;
+}
+
+.metodo-btn i {
+  font-size: 28px;
+  color: #1a1a2e;
+}
+
+.metodo-btn span {
+  font-size: 14px;
+  font-weight: 500;
+  color: #1a1a2e;
+}
+
+.metodo-btn .yape-icon {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.cards-logos {
+  display: flex;
+  gap: 5px;
+}
+
+.cards-logos .visa,
+.cards-logos .mc {
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.cards-logos .visa {
+  background: #1a1f71;
+  color: white;
+}
+
+.cards-logos .mc {
+  background: #eb001b;
+  color: white;
+}
+
+/* Metodos Disponibles */
+.metodos-disponibles {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.metodos-disponibles p {
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.metodos-icons {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.metodo-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.metodo-icon i {
+  font-size: 32px;
+  color: #1a1a2e;
+}
+
+.metodo-icon img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+.metodo-icon span {
+  font-size: 12px;
+  color: #666;
+}
+
+/* Precio tachado */
+.precio-tachado {
+  text-decoration: line-through;
+  color: #999;
+}
+
+/* Tarjetas de prueba */
+.tarjetas-prueba {
+  margin-top: 20px;
+  padding: 15px;
+  background: #f0f9ff;
+  border-radius: 10px;
+  border: 1px dashed #0ea5e9;
+}
+
+.tarjetas-prueba p {
+  margin: 5px 0;
+  text-align: center;
+  color: #0369a1;
+}
+
+/* Error Message */
+.error-msg {
+  background: #fff5f5;
+  color: #e74c3c;
+  padding: 12px 15px;
+  border-radius: 10px;
+  font-size: 14px;
+  margin-bottom: 15px;
+  border-left: 4px solid #e74c3c;
+}
+
+/* Button Pagar */
+.btn-pagar {
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(135deg, #e94560 0%, #d63050 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+}
+
+.btn-pagar:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(233, 69, 96, 0.4);
+}
+
+.btn-pagar:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Spinner */
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Security Footer */
+.security-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.powered-by, .ssl-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: #888;
+}
+
+.powered-by .culqi {
+  color: #00d4aa;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.ssl-badge i {
+  color: #27ae60;
+}
+
+/* Yape Card */
+.yape-card {
+  max-width: 500px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 20px;
+  padding: 40px;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+}
+
+.yape-logo-container {
+  margin-bottom: 30px;
+}
+
+.yape-logo {
+  width: 80px;
+  margin-bottom: 15px;
+}
+
+.yape-logo-container h2 {
+  font-size: 20px;
+  color: #1a1a2e;
+}
+
+.yape-amount {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 12px;
+  margin-bottom: 30px;
+}
+
+.yape-amount span {
+  color: #666;
+}
+
+.yape-amount strong {
+  font-size: 28px;
+  color: #742284;
+}
+
+.yape-steps {
+  text-align: left;
+  margin-bottom: 30px;
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.step:last-child {
+  border-bottom: none;
+}
+
+.step-number {
+  width: 30px;
+  height: 30px;
+  background: #742284;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.step span:last-child {
+  color: #333;
+  font-size: 14px;
+}
+
+.verificando-pago {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  padding: 30px;
+  background: #f8f9fa;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.verificando-pago .spinner {
+  border-color: rgba(116, 34, 132, 0.3);
+  border-top-color: #742284;
+}
+
+.verificando-pago p {
+  color: #666;
+  font-size: 14px;
+}
+
+.security-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: #888;
+  font-size: 13px;
+  margin-top: 20px;
+}
+
+.security-badge i {
+  color: #27ae60;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .checkout-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .sidebar.close ~ .container .checkout-container {
+  margin-left: 0px;
+  width: calc(100% - 0px);
+}
+
+
+  .checkout-container {
+    margin-left: 0;
+    width: 100%;
+    padding: 15px;
+  }
+
+  .checkout-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .curso-detalle {
+    flex-direction: column;
+  }
+
+  .curso-imagen {
+    width: 100%;
+    height: 180px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .metodos-grid {
+    grid-template-columns: 1fr;
+  }
+}

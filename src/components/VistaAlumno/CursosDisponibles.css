@@ -1,0 +1,625 @@
+/* ==================== CONTAINER PRINCIPAL ==================== */
+.cursos-disponibles-container {
+  padding: 20px;
+  margin-left: 260px;
+  margin-top: 80px;
+  transition: all 0.3s ease;
+  width: calc(100% - 260px);
+  min-height: calc(100vh - 80px);
+}
+
+/* Ajuste cuando el sidebar está cerrado */
+.sidebar.close ~ .container .cursos-disponibles-container {
+  margin-left: 80px;
+  width: calc(100% - 80px);
+}
+
+/* ==================== HEADER ==================== */
+.cursos-disponibles-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.cursos-disponibles-header h1 {
+  font-size: 2.5rem;
+  color: var(--grey-color);
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.cursos-disponibles-header p {
+  font-size: 1.1rem;
+  color: var(--grey-color);
+}
+
+/* ==================== FILTROS ==================== */
+.cursos-disponibles-filtros {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.busqueda-container {
+  flex: 1;
+  min-width: 250px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.busqueda-container i {
+  position: absolute;
+  left: 1rem;
+  color: #9ca3af;
+  font-size: 1.2rem;
+}
+
+.busqueda-container input {
+  width: 100%;
+  padding: 0.75rem 1rem 0.75rem 2.5rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.busqueda-container input:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.cursos-disponibles-filtros select {
+  padding: 7px 10px;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  font-size: 1rem;
+  background: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 200px;
+}
+
+.cursos-disponibles-filtros select:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+/* ==================== COURSES GRID ==================== */
+.cursos-disponibles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 1rem 0;
+}
+
+/* ==================== COURSE CARD ==================== */
+.course-card {
+  background: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border: 1px solid #f0f0f0;
+  cursor: pointer;
+}
+
+.course-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgba(102, 126, 234, 0.2);
+  border-color: rgba(102, 126, 234, 0.3);
+}
+
+/* ==================== COURSE IMAGE ==================== */
+.course-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 240px;
+  overflow: hidden;
+  background: #0554af;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.course-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.4s ease;
+  flex-shrink: 0;
+}
+
+.course-card:hover .course-image {
+  transform: scale(1.1);
+}
+
+/* Overlay cuando la imagen no carga */
+.course-image-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.course-card:hover .course-image-wrapper::before {
+  opacity: 1;
+}
+
+/* ==================== CATEGORY BADGE ==================== */
+.course-category-badge {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  color: #667eea;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 2;
+}
+
+/* ==================== ENROLLED BADGE ==================== */
+.enrolled-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(34, 197, 94, 0.95);
+  backdrop-filter: blur(10px);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);
+  z-index: 2;
+}
+
+/* ==================== COURSE CONTENT ==================== */
+.course-content {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  flex-grow: 1;
+}
+
+.course-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 0.5rem 0;
+  line-height: 1.4;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
+}
+
+.course-description {
+  color: #6b7280;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin: 0;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  flex-grow: 1;
+}
+
+/* ==================== COURSE META ==================== */
+.course-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid #f3f4f6;
+}
+
+.course-info-cursos {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.course-modules,
+.course-students,
+.course-duration {
+  background: #e0e7ff;
+  color: #4338ca;
+  padding: 0.4rem 0.8rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.course-students {
+  background: #fef3c7;
+  color: #d97706;
+}
+
+.course-pricing {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+  border-radius: 10px;
+  border-left: 3px solid #16a34a;
+}
+
+.price-offer {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #16a34a;
+  text-shadow: 0 1px 2px rgba(22, 163, 74, 0.2);
+}
+
+.price-original {
+  font-size: 1.1rem;
+  color: #9ca3af;
+  text-decoration: line-through;
+  font-weight: 500;
+  position: relative;
+}
+
+.price-original::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  height: 2px;
+  background-color: #ef4444;
+  transform: translateY(-50%);
+}
+
+.price-current {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #1f2937;
+  text-shadow: 0 1px 2px rgba(31, 41, 55, 0.1);
+}
+
+.price-discount {
+  background: #ef4444;
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* ==================== SCHEDULE INFO ==================== */
+.course-schedule-info {
+  margin-top: 0.5rem;
+}
+
+.schedule-count {
+  background: #f3f4f6;
+  color: #374151;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.badge-inscrito {
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
+}
+
+/* ==================== INFO DEL CURSO ==================== */
+.curso-disponible-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 0 1.5rem 1.5rem 1.5rem;
+}
+
+.curso-descripcion {
+  color: #6b7280;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.curso-detalles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1rem;
+  background: #f9fafb;
+  border-radius: 12px;
+}
+
+.detalle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #4b5563;
+  font-size: 0.9rem;
+}
+
+.detalle i {
+  font-size: 1.2rem;
+  color: #667eea;
+}
+
+/* ==================== PRECIOS ==================== */
+.curso-pricing {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+  border-radius: 12px;
+  border-left: 4px solid #16a34a;
+  flex-wrap: wrap;
+}
+
+.price-offer {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #16a34a;
+  letter-spacing: -0.5px;
+}
+
+.price-original {
+  font-size: 1.1rem;
+  color: #9ca3af;
+  text-decoration: line-through;
+  font-weight: 500;
+}
+
+.price-current {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #1f2937;
+  letter-spacing: -0.5px;
+}
+
+.price-discount {
+  background: #dc2626;
+  color: white;
+  padding: 0.3rem 0.6rem;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  margin-left: auto;
+  box-shadow: 0 2px 8px rgba(220, 38, 38, 0.3);
+}
+
+/* ==================== HORARIOS ==================== */
+.curso-horarios {
+  background: #f9fafb;
+  padding: 1rem;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+}
+
+.curso-horarios h4 {
+  font-size: 1rem;
+  color: #374151;
+  margin: 0 0 0.75rem 0;
+  font-weight: 600;
+}
+
+.horario-opcion {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem;
+  background: white;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+  border: 1px solid #e5e7eb;
+  gap: 1rem;
+}
+
+.horario-opcion:last-child {
+  margin-bottom: 0;
+}
+
+.horario-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.profesor,
+.horario {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: #4b5563;
+}
+
+.profesor i,
+.horario i {
+  color: #667eea;
+  font-size: 1.1rem;
+}
+
+/* ==================== BOTONES ==================== */
+.btn-inscribirse {
+  padding: 0.6rem 1.2rem;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.btn-inscribirse:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(102, 126, 234, 0.4);
+}
+
+.tag-inscrito {
+  padding: 0.5rem 1rem;
+  background: #d1fae5;
+  color: #065f46;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* ==================== LOADING ==================== */
+.cursos-disponibles-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  color: #6b7280;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid #e5e7eb;
+  border-top: 4px solid #667eea;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* ==================== NO CURSOS ==================== */
+.no-cursos {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: #9ca3af;
+}
+
+.no-cursos i {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  opacity: 0.5;
+}
+
+.no-cursos p {
+  font-size: 1.1rem;
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 768px) {
+   .cursos-disponibles-container {
+    margin-left: 0;
+    width: 100%;
+    padding: 15px;
+  }
+  
+  .sidebar.close ~ .container .cursos-disponibles-container {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .cursos-disponibles-header h1 {
+    margin-top: 20px;
+    font-size: 2rem;
+  }
+
+  .cursos-disponibles-header p {
+    font-size: 1rem;
+  }
+
+  .cursos-disponibles-filtros {
+    flex-direction: column;
+  }
+
+  .busqueda-container,
+  .cursos-disponibles-filtros select {
+    width: 100%;
+  }
+
+  .cursos-disponibles-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .curso-disponible-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .badge-inscrito {
+    align-self: flex-start;
+  }
+
+  .horario-opcion {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn-inscribirse {
+    width: 100%;
+  }
+
+  .curso-pricing {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .price-discount {
+    margin-left: 0;
+    align-self: flex-start;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .cursos-disponibles-grid {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+}
+
+@media (min-width: 1025px) {
+  .cursos-disponibles-grid {
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  }
+}
